@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMS Nömrə — Crash Number Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 700: '#2a2a3c', 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #0b0b12; min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .sidebar-link.active { background: rgba(99,102,241,0.15); color: #a5b4fc; border-right: 3px solid #6366f1; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.04); }
+    .service-card:hover { border-color: rgba(99,102,241,0.4); transform: translateY(-2px); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+    <aside class="hidden lg:flex flex-col w-64 bg-dark-900 border-r border-white/5 fixed h-full z-40">
+      <div class="p-5 flex items-center gap-3 border-b border-white/5">
+        <div class="w-9 h-9 rounded-lg btn-primary flex items-center justify-center font-bold">C</div>
+        <span class="text-lg font-bold">Crash <span class="text-indigo-400">Number Bot</span></span>
+      </div>
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mb-2">Əsas</p>
+        <a href="dashboard.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-home w-5 text-center"></i> Ana Panel</a>
+        <a href="balance.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-wallet w-5 text-center"></i> Balans</a>
+        <a href="sms.html" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm transition"><i class="fas fa-mobile-alt w-5 text-center"></i> SMS Nömrə</a>
+        <a href="smm.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-chart-line w-5 text-center"></i> SMM Xidmətləri</a>
+        <a href="tempmail.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-envelope w-5 text-center"></i> Temp Mail</a>
+      </nav>
+      <div class="p-4 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-indigo-500/30 flex items-center justify-center text-indigo-300 font-semibold text-sm">U</div>
+          <div class="flex-1 min-w-0"><p class="text-sm font-medium truncate">user123</p><p class="text-xs text-gray-500">ID: 10042</p></div>
+          <a href="login.html" class="text-gray-500 hover:text-red-400"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 lg:ml-64">
+      <header class="sticky top-0 z-30 glass px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="dashboard.html" class="lg:hidden text-gray-400"><i class="fas fa-arrow-left"></i></a>
+          <h1 class="text-lg font-semibold">SMS Nömrə</h1>
+        </div>
+        <div class="flex items-center gap-2 bg-dark-800 px-4 py-1.5 rounded-xl border border-white/5">
+          <i class="fas fa-wallet text-indigo-400"></i>
+          <span class="font-semibold text-sm">12.50 AZN</span>
+        </div>
+      </header>
+
+      <div class="p-4 md:p-6 max-w-4xl mx-auto space-y-6">
+
+        <!-- Active numbers -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4"><i class="fas fa-broadcast-tower text-blue-400 mr-2"></i>Aktiv nömrələriniz</h2>
+          <div class="space-y-3">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between bg-dark-800/60 rounded-xl px-4 py-3 gap-3">
+              <div>
+                <p class="font-mono text-sm">+994 50 *** ** 23</p>
+                <p class="text-xs text-gray-500">Telegram • 12 dəq qalıb</p>
+              </div>
+              <div class="flex gap-2">
+                <span class="text-xs bg-yellow-500/15 text-yellow-400 px-2.5 py-1 rounded-lg self-center">SMS gözlənilir</span>
+                <button class="text-xs bg-red-500/15 text-red-400 px-3 py-1.5 rounded-lg hover:bg-red-500/25">Ləğv et</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service selection -->
+        <div>
+          <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Xidmət seçin</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">📱</div>
+              <p class="text-sm font-medium">Telegram</p>
+              <p class="text-xs text-gray-500 mt-1">1.20 – 3.50 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">🟢</div>
+              <p class="text-sm font-medium">WhatsApp</p>
+              <p class="text-xs text-gray-500 mt-1">1.50 – 4.00 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">📸</div>
+              <p class="text-sm font-medium">Instagram</p>
+              <p class="text-xs text-gray-500 mt-1">1.80 – 3.20 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">🎵</div>
+              <p class="text-sm font-medium">TikTok</p>
+              <p class="text-xs text-gray-500 mt-1">1.40 – 2.90 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">🌐</div>
+              <p class="text-sm font-medium">Google / Gmail</p>
+              <p class="text-xs text-gray-500 mt-1">2.00 – 5.00 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">👥</div>
+              <p class="text-sm font-medium">Facebook</p>
+              <p class="text-xs text-gray-500 mt-1">1.60 – 3.80 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">🐦</div>
+              <p class="text-sm font-medium">Twitter (X)</p>
+              <p class="text-xs text-gray-500 mt-1">1.70 – 3.50 AZN</p>
+            </button>
+            <button class="service-card glass rounded-2xl p-4 text-center transition border border-transparent">
+              <div class="text-2xl mb-2">🔥</div>
+              <p class="text-sm font-medium">Tinder</p>
+              <p class="text-xs text-gray-500 mt-1">2.50 – 6.00 AZN</p>
+            </button>
+          </div>
+        </div>
+
+        <!-- Country selection (shown after service) -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4">Ölkə seçin <span class="text-gray-500 text-sm font-normal">(Telegram üçün)</span></h2>
+          <div class="space-y-2">
+            <button class="w-full flex items-center justify-between bg-dark-800/60 hover:bg-dark-800 rounded-xl px-4 py-3 transition">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">🇦🇿</span>
+                <span class="text-sm">Azərbaycan</span>
+              </div>
+              <span class="text-sm text-indigo-400 font-medium">2.15 AZN</span>
+            </button>
+            <button class="w-full flex items-center justify-between bg-dark-800/60 hover:bg-dark-800 rounded-xl px-4 py-3 transition">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">🇷🇺</span>
+                <span class="text-sm">Rusiya</span>
+              </div>
+              <span class="text-sm text-indigo-400 font-medium">1.45 AZN</span>
+            </button>
+            <button class="w-full flex items-center justify-between bg-dark-800/60 hover:bg-dark-800 rounded-xl px-4 py-3 transition">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">🇹🇷</span>
+                <span class="text-sm">Türkiyə</span>
+              </div>
+              <span class="text-sm text-indigo-400 font-medium">1.90 AZN</span>
+            </button>
+            <button class="w-full flex items-center justify-between bg-dark-800/60 hover:bg-dark-800 rounded-xl px-4 py-3 transition">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">🇺🇦</span>
+                <span class="text-sm">Ukrayna</span>
+              </div>
+              <span class="text-sm text-indigo-400 font-medium">1.30 AZN</span>
+            </button>
+            <button class="w-full flex items-center justify-between bg-dark-800/60 hover:bg-dark-800 rounded-xl px-4 py-3 transition">
+              <div class="flex items-center gap-3">
+                <span class="text-xl">🇰🇿</span>
+                <span class="text-sm">Qazaxıstan</span>
+              </div>
+              <span class="text-sm text-indigo-400 font-medium">1.55 AZN</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

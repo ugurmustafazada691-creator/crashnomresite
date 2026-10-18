@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temp Mail — Crash Number Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 700: '#2a2a3c', 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #0b0b12; min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .sidebar-link.active { background: rgba(99,102,241,0.15); color: #a5b4fc; border-right: 3px solid #6366f1; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.04); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+    <aside class="hidden lg:flex flex-col w-64 bg-dark-900 border-r border-white/5 fixed h-full z-40">
+      <div class="p-5 flex items-center gap-3 border-b border-white/5">
+        <div class="w-9 h-9 rounded-lg btn-primary flex items-center justify-center font-bold">C</div>
+        <span class="text-lg font-bold">Crash <span class="text-indigo-400">Number Bot</span></span>
+      </div>
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mb-2">Əsas</p>
+        <a href="dashboard.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-home w-5 text-center"></i> Ana Panel</a>
+        <a href="balance.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-wallet w-5 text-center"></i> Balans</a>
+        <a href="sms.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-mobile-alt w-5 text-center"></i> SMS Nömrə</a>
+        <a href="smm.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-chart-line w-5 text-center"></i> SMM Xidmətləri</a>
+        <a href="tempmail.html" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm transition"><i class="fas fa-envelope w-5 text-center"></i> Temp Mail</a>
+      </nav>
+      <div class="p-4 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-indigo-500/30 flex items-center justify-center text-indigo-300 font-semibold text-sm">U</div>
+          <div class="flex-1 min-w-0"><p class="text-sm font-medium truncate">user123</p><p class="text-xs text-gray-500">ID: 10042</p></div>
+          <a href="login.html" class="text-gray-500 hover:text-red-400"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 lg:ml-64">
+      <header class="sticky top-0 z-30 glass px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="dashboard.html" class="lg:hidden text-gray-400"><i class="fas fa-arrow-left"></i></a>
+          <h1 class="text-lg font-semibold">Temp Mail</h1>
+        </div>
+        <div class="flex items-center gap-2 bg-dark-800 px-4 py-1.5 rounded-xl border border-white/5">
+          <i class="fas fa-wallet text-indigo-400"></i>
+          <span class="font-semibold text-sm">12.50 AZN</span>
+        </div>
+      </header>
+
+      <div class="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
+
+        <!-- Buy new -->
+        <div class="glass rounded-2xl p-6 text-center border border-emerald-500/20">
+          <div class="w-14 h-14 mx-auto rounded-2xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 text-2xl mb-4">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <h2 class="text-xl font-bold mb-2">Müvəqqəti Email</h2>
+          <p class="text-gray-400 text-sm mb-1">Qiymət: <strong class="text-white">0.10 AZN</strong> (10 qəpik)</p>
+          <p class="text-gray-500 text-xs mb-5">Ömür: 1 saat • Avtomatik silinir</p>
+          <button class="btn-primary px-8 py-3 rounded-xl font-semibold text-sm">
+            <i class="fas fa-plus mr-2"></i> Yeni email al (0.10 AZN)
+          </button>
+        </div>
+
+        <!-- Active emails -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4"><i class="fas fa-inbox text-emerald-400 mr-2"></i>Aktiv emailləriniz</h2>
+          
+          <div class="space-y-3">
+            <!-- Email 1 -->
+            <div class="bg-dark-800/60 rounded-xl p-4">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+                <div>
+                  <p class="font-mono text-sm select-all">k7x9m2p4q1@mail.tm</p>
+                  <p class="text-xs text-gray-500 mt-0.5">⏱ 42 dəq 15 san qalıb</p>
+                </div>
+                <div class="flex gap-2">
+                  <button class="text-xs bg-indigo-500/15 text-indigo-400 px-3 py-1.5 rounded-lg hover:bg-indigo-500/25">
+                    <i class="fas fa-sync-alt mr-1"></i> Yenilə
+                  </button>
+                  <button class="text-xs bg-red-500/15 text-red-400 px-3 py-1.5 rounded-lg hover:bg-red-500/25">
+                    Sil
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Messages -->
+              <div class="border-t border-white/5 pt-3 space-y-2">
+                <p class="text-xs text-gray-500 mb-2">📬 2 məktub</p>
+                <button class="w-full text-left bg-dark-900/50 hover:bg-dark-900 rounded-lg px-3 py-2.5 transition">
+                  <p class="text-sm font-medium truncate">Təsdiq kodu: 847291</p>
+                  <p class="text-xs text-gray-500">noreply@service.com • 5 dəq əvvəl</p>
+                </button>
+                <button class="w-full text-left bg-dark-900/50 hover:bg-dark-900 rounded-lg px-3 py-2.5 transition">
+                  <p class="text-sm font-medium truncate">Xoş gəlmisiniz!</p>
+                  <p class="text-xs text-gray-500">hello@platform.com • 18 dəq əvvəl</p>
+                </button>
+              </div>
+            </div>
+
+            <!-- Empty state example -->
+            <div class="bg-dark-800/40 rounded-xl p-4 opacity-60">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="font-mono text-sm">a3b8c1d9e2@mail.tm</p>
+                  <p class="text-xs text-gray-500 mt-0.5">⏱ 8 dəq qalıb</p>
+                </div>
+                <span class="text-xs text-gray-500">📭 Məktub yoxdur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- History -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4 text-sm"><i class="fas fa-history text-gray-400 mr-2"></i>Tarixçə</h2>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between py-2 border-b border-white/5">
+              <div>
+                <p class="font-mono text-xs">x9y2z4@mail.tm</p>
+                <p class="text-xs text-gray-500">dünən 11:30</p>
+              </div>
+              <span class="text-xs text-gray-500">Vaxtı bitib</span>
+            </div>
+            <div class="flex justify-between py-2">
+              <div>
+                <p class="font-mono text-xs">m5n7p1@mail.tm</p>
+                <p class="text-xs text-gray-500">2 gün əvvəl</p>
+              </div>
+              <span class="text-xs text-gray-500">Silinib</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

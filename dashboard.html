@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel — Crash Number Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 700: '#2a2a3c', 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #0b0b12; min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .card-hover:hover { transform: translateY(-3px); border-color: rgba(99,102,241,0.3); }
+    .sidebar-link.active { background: rgba(99,102,241,0.15); color: #a5b4fc; border-right: 3px solid #6366f1; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.04); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar (desktop) -->
+    <aside class="hidden lg:flex flex-col w-64 bg-dark-900 border-r border-white/5 fixed h-full z-40">
+      <div class="p-5 flex items-center gap-3 border-b border-white/5">
+        <div class="w-9 h-9 rounded-lg btn-primary flex items-center justify-center font-bold">C</div>
+        <span class="text-lg font-bold">Crash <span class="text-indigo-400">Number Bot</span></span>
+      </div>
+
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mb-2">Əsas</p>
+        <a href="dashboard.html" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm transition">
+          <i class="fas fa-home w-5 text-center"></i> Ana Panel
+        </a>
+        <a href="#balance" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-wallet w-5 text-center"></i> Balans
+        </a>
+        <a href="#sms" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-mobile-alt w-5 text-center"></i> SMS Nömrə
+        </a>
+        <a href="#smm" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-chart-line w-5 text-center"></i> SMM Xidmətləri
+        </a>
+        <a href="#tempmail" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-envelope w-5 text-center"></i> Temp Mail
+        </a>
+
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mt-6 mb-2">Digər</p>
+        <a href="#history" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-history w-5 text-center"></i> Sifariş tarixçəsi
+        </a>
+        <a href="#referral" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-users w-5 text-center"></i> Referal
+        </a>
+        <a href="#tickets" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-headset w-5 text-center"></i> Dəstək
+        </a>
+        <a href="#promo" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-ticket-alt w-5 text-center"></i> Promo kod
+        </a>
+      </nav>
+
+      <div class="p-4 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-indigo-500/30 flex items-center justify-center text-indigo-300 font-semibold text-sm">U</div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium truncate">user123</p>
+            <p class="text-xs text-gray-500">ID: 10042</p>
+          </div>
+          <a href="login.html" class="text-gray-500 hover:text-red-400 transition" title="Çıxış">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="flex-1 lg:ml-64">
+
+      <!-- Top bar -->
+      <header class="sticky top-0 z-30 glass px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <button class="lg:hidden text-gray-400 hover:text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+            <i class="fas fa-bars text-xl"></i>
+          </button>
+          <h1 class="text-lg font-semibold">Ana Panel</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="hidden sm:flex items-center gap-2 bg-dark-800 px-4 py-1.5 rounded-xl border border-white/5">
+            <i class="fas fa-wallet text-indigo-400"></i>
+            <span class="font-semibold text-sm">12.50 AZN</span>
+          </div>
+          <button class="relative text-gray-400 hover:text-white">
+            <i class="fas fa-bell text-lg"></i>
+            <span class="absolute -top-1 -right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden lg:hidden glass border-b border-white/5 px-4 py-3 space-y-1">
+        <a href="dashboard.html" class="block py-2 text-sm text-indigo-300">Ana Panel</a>
+        <a href="#sms" class="block py-2 text-sm text-gray-400">SMS Nömrə</a>
+        <a href="#smm" class="block py-2 text-sm text-gray-400">SMM</a>
+        <a href="#tempmail" class="block py-2 text-sm text-gray-400">Temp Mail</a>
+        <a href="#balance" class="block py-2 text-sm text-gray-400">Balans</a>
+        <a href="login.html" class="block py-2 text-sm text-red-400">Çıxış</a>
+      </div>
+
+      <div class="p-4 md:p-6 max-w-6xl mx-auto space-y-6">
+
+        <!-- Balance card -->
+        <div class="glass rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border border-indigo-500/20">
+          <div>
+            <p class="text-gray-400 text-sm mb-1">Cari balans</p>
+            <p class="text-3xl font-bold">12.50 <span class="text-lg text-gray-400">AZN</span></p>
+            <p class="text-xs text-yellow-400/80 mt-1"><i class="fas fa-exclamation-triangle mr-1"></i> Balans aşağıdır — artırın</p>
+          </div>
+          <div class="flex gap-3">
+            <a href="#balance" class="btn-primary px-5 py-2.5 rounded-xl text-sm font-medium transition">
+              <i class="fas fa-plus mr-1.5"></i> Balans artır
+            </a>
+            <a href="#history" class="glass px-5 py-2.5 rounded-xl text-sm font-medium hover:bg-white/5 transition">
+              Tarixçə
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick actions -->
+        <div>
+          <h2 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Sürətli keçidlər</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+
+            <a href="#sms" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-blue-500/15 flex items-center justify-center text-blue-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <p class="text-sm font-medium">SMS Nömrə</p>
+            </a>
+
+            <a href="#smm" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-pink-500/15 flex items-center justify-center text-pink-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <p class="text-sm font-medium">SMM</p>
+            </a>
+
+            <a href="#tempmail" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <p class="text-sm font-medium">Temp Mail</p>
+              <p class="text-xs text-gray-500 mt-0.5">0.10 AZN</p>
+            </a>
+
+            <a href="#referral" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-purple-500/15 flex items-center justify-center text-purple-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-users"></i>
+              </div>
+              <p class="text-sm font-medium">Referal</p>
+            </a>
+
+            <a href="#tickets" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-cyan-500/15 flex items-center justify-center text-cyan-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-headset"></i>
+              </div>
+              <p class="text-sm font-medium">Dəstək</p>
+            </a>
+
+            <a href="#promo" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-yellow-500/15 flex items-center justify-center text-yellow-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-ticket-alt"></i>
+              </div>
+              <p class="text-sm font-medium">Promo kod</p>
+            </a>
+
+            <a href="#history" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-orange-500/15 flex items-center justify-center text-orange-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-history"></i>
+              </div>
+              <p class="text-sm font-medium">Tarixçə</p>
+            </a>
+
+            <a href="#download" class="glass rounded-2xl p-4 card-hover transition duration-200 text-center group">
+              <div class="w-12 h-12 mx-auto rounded-xl bg-red-500/15 flex items-center justify-center text-red-400 text-xl mb-3 group-hover:scale-110 transition">
+                <i class="fas fa-download"></i>
+              </div>
+              <p class="text-sm font-medium">Video / MP3</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Active numbers preview -->
+        <div class="glass rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-semibold"><i class="fas fa-broadcast-tower text-blue-400 mr-2"></i>Aktiv nömrələr</h2>
+            <a href="#sms" class="text-xs text-indigo-400 hover:underline">Hamısı →</a>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between bg-dark-800/60 rounded-xl px-4 py-3">
+              <div>
+                <p class="font-mono text-sm">+994 50 *** ** 23</p>
+                <p class="text-xs text-gray-500">Telegram • 12 dəq qalıb</p>
+              </div>
+              <span class="text-xs bg-yellow-500/15 text-yellow-400 px-2.5 py-1 rounded-lg">SMS gözlənilir</span>
+            </div>
+            <div class="text-center text-sm text-gray-500 py-2">
+              Digər aktiv nömrə yoxdur
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent activity -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4"><i class="fas fa-clock text-gray-400 mr-2"></i>Son əməliyyatlar</h2>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between py-2 border-b border-white/5">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-emerald-500/15 flex items-center justify-center text-emerald-400 text-xs">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div>
+                  <p>Temp Mail alındı</p>
+                  <p class="text-xs text-gray-500">bugün 14:22</p>
+                </div>
+              </div>
+              <span class="text-red-400 font-medium">-0.10 AZN</span>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-white/5">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-500/15 flex items-center justify-center text-blue-400 text-xs">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div>
+                  <p>SMS nömrə (Telegram)</p>
+                  <p class="text-xs text-gray-500">dünən 19:05</p>
+                </div>
+              </div>
+              <span class="text-red-400 font-medium">-1.85 AZN</span>
+            </div>
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-green-500/15 flex items-center justify-center text-green-400 text-xs">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <div>
+                  <p>Balans yükləmə</p>
+                  <p class="text-xs text-gray-500">2 gün əvvəl</p>
+                </div>
+              </div>
+              <span class="text-green-400 font-medium">+10.00 AZN</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>

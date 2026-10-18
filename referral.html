@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referal — Crash Number Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 700: '#2a2a3c', 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #0b0b12; min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .sidebar-link.active { background: rgba(99,102,241,0.15); color: #a5b4fc; border-right: 3px solid #6366f1; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.04); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+    <aside class="hidden lg:flex flex-col w-64 bg-dark-900 border-r border-white/5 fixed h-full z-40">
+      <div class="p-5 flex items-center gap-3 border-b border-white/5">
+        <div class="w-9 h-9 rounded-lg btn-primary flex items-center justify-center font-bold">C</div>
+        <span class="text-lg font-bold">Crash <span class="text-indigo-400">Number Bot</span></span>
+      </div>
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mb-2">Əsas</p>
+        <a href="dashboard.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-home w-5 text-center"></i> Ana Panel</a>
+        <a href="balance.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-wallet w-5 text-center"></i> Balans</a>
+        <a href="sms.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-mobile-alt w-5 text-center"></i> SMS Nömrə</a>
+        <a href="smm.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-chart-line w-5 text-center"></i> SMM</a>
+        <a href="tempmail.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-envelope w-5 text-center"></i> Temp Mail</a>
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mt-6 mb-2">Digər</p>
+        <a href="referral.html" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm transition"><i class="fas fa-users w-5 text-center"></i> Referal</a>
+        <a href="support.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-headset w-5 text-center"></i> Dəstək</a>
+        <a href="promo.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition"><i class="fas fa-ticket-alt w-5 text-center"></i> Promo kod</a>
+      </nav>
+      <div class="p-4 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-indigo-500/30 flex items-center justify-center text-indigo-300 font-semibold text-sm">U</div>
+          <div class="flex-1 min-w-0"><p class="text-sm font-medium truncate">user123</p><p class="text-xs text-gray-500">ID: 10042</p></div>
+          <a href="login.html" class="text-gray-500 hover:text-red-400"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 lg:ml-64">
+      <header class="sticky top-0 z-30 glass px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <a href="dashboard.html" class="lg:hidden text-gray-400"><i class="fas fa-arrow-left"></i></a>
+          <h1 class="text-lg font-semibold">Referal Proqramı</h1>
+        </div>
+        <div class="flex items-center gap-2 bg-dark-800 px-4 py-1.5 rounded-xl border border-white/5">
+          <i class="fas fa-wallet text-indigo-400"></i>
+          <span class="font-semibold text-sm">12.50 AZN</span>
+        </div>
+      </header>
+
+      <div class="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
+
+        <!-- Stats -->
+        <div class="grid grid-cols-2 gap-3">
+          <div class="glass rounded-2xl p-5 text-center">
+            <p class="text-3xl font-bold text-indigo-400">7</p>
+            <p class="text-sm text-gray-400 mt-1">Dəvət etdiyiniz</p>
+          </div>
+          <div class="glass rounded-2xl p-5 text-center">
+            <p class="text-3xl font-bold text-green-400">1.24</p>
+            <p class="text-sm text-gray-400 mt-1">Qazanc (AZN)</p>
+          </div>
+        </div>
+
+        <!-- Referral link -->
+        <div class="glass rounded-2xl p-6 border border-indigo-500/20">
+          <h2 class="font-semibold mb-3"><i class="fas fa-link text-indigo-400 mr-2"></i>Sizin referal linkiniz</h2>
+          <div class="flex gap-2">
+            <input type="text" readonly value="https://kingbot.az/register?ref=10042" 
+              class="flex-1 bg-black/30 border border-white/10 rounded-xl px-4 py-3 text-sm font-mono">
+            <button onclick="navigator.clipboard.writeText('https://kingbot.az/register?ref=10042')" 
+              class="btn-primary px-5 py-3 rounded-xl text-sm font-medium whitespace-nowrap">
+              <i class="fas fa-copy mr-1"></i> Kopyala
+            </button>
+          </div>
+          <p class="text-xs text-gray-500 mt-3">Linki dostlarınızla paylaşın</p>
+        </div>
+
+        <!-- How it works -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4">Necə işləyir?</h2>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm font-bold shrink-0">1</div>
+              <div>
+                <p class="font-medium text-sm">Dostunuzu dəvət edin</p>
+                <p class="text-xs text-gray-500">Linkinizlə qeydiyyatdan keçsin</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm font-bold shrink-0">2</div>
+              <div>
+                <p class="font-medium text-sm">Sabit bonus alın</p>
+                <p class="text-xs text-gray-500">Hər yeni istifadəçi üçün <strong class="text-white">0.03 AZN</strong></p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-8 h-8 rounded-full bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-sm font-bold shrink-0">3</div>
+              <div>
+                <p class="font-medium text-sm">Depozit komissiyası</p>
+                <p class="text-xs text-gray-500">Dəvət etdiyiniz şəxs depozit edəndə <strong class="text-white">3%</strong> qazanın</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent referrals -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4 text-sm"><i class="fas fa-user-plus text-gray-400 mr-2"></i>Son dəvətlər</h2>
+          <div class="space-y-2 text-sm">
+            <div class="flex justify-between py-2 border-b border-white/5">
+              <div>
+                <p>user8912</p>
+                <p class="text-xs text-gray-500">15.10.2026</p>
+              </div>
+              <span class="text-green-400 text-xs">+0.03 AZN</span>
+            </div>
+            <div class="flex justify-between py-2 border-b border-white/5">
+              <div>
+                <p>user3401</p>
+                <p class="text-xs text-gray-500">12.10.2026</p>
+              </div>
+              <span class="text-green-400 text-xs">+0.03 AZN</span>
+            </div>
+            <div class="flex justify-between py-2">
+              <div>
+                <p>user7721</p>
+                <p class="text-xs text-gray-500">08.10.2026</p>
+              </div>
+              <span class="text-green-400 text-xs">+0.03 + komissiya</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

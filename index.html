@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crash Number Bot — Ana Səhifə</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: linear-gradient(135deg, #0b0b12 0%, #1a1a2e 100%); min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.08); }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <!-- Navbar -->
+  <nav class="glass sticky top-0 z-50 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl btn-primary flex items-center justify-center font-bold text-lg">C</div>
+        <span class="text-xl font-bold tracking-tight">Crash <span class="text-indigo-400">Number Bot</span></span>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="login.html" class="text-sm text-gray-300 hover:text-white transition">Giriş</a>
+        <a href="register.html" class="btn-primary text-sm px-5 py-2 rounded-xl font-medium transition">Qeydiyyat</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-4 pt-16 pb-20 text-center">
+    <div class="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-sm px-4 py-1.5 rounded-full mb-6">
+      <i class="fas fa-bolt text-yellow-400"></i> Pulsuz qeydiyyat • Dərhal başla
+    </div>
+    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+      SMS Nömrə • SMM • Temp Mail<br>
+      <span class="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">Bir yerdə</span>
+    </h1>
+    <p class="text-gray-400 text-lg max-w-2xl mx-auto mb-10">
+      Virtual nömrə al, SMM xidmətləri sifariş et, müvəqqəti email yarat. Balansını artır, referal qazan.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="register.html" class="btn-primary px-8 py-3.5 rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/25 transition">
+        <i class="fas fa-rocket mr-2"></i> İndi başla
+      </a>
+      <a href="#features" class="glass px-8 py-3.5 rounded-2xl font-semibold text-lg hover:bg-white/5 transition">
+        Xüsusiyyətlər
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features" class="max-w-6xl mx-auto px-4 pb-20">
+    <h2 class="text-2xl font-bold text-center mb-10">Bütün xidmətlər bir platformada</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center text-blue-400 text-xl mb-4">
+          <i class="fas fa-mobile-alt"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">SMS Nömrə</h3>
+        <p class="text-gray-400 text-sm">Telegram, WhatsApp, Instagram və 100+ xidmət üçün virtual nömrə. SMS avtomatik gəlir.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-pink-500/20 flex items-center justify-center text-pink-400 text-xl mb-4">
+          <i class="fas fa-chart-line"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">SMM Xidmətləri</h3>
+        <p class="text-gray-400 text-sm">İzləyçi, bəyəni, baxış, şərh. Telegram, Instagram, TikTok, YouTube üçün.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 text-xl mb-4">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Temp Mail</h3>
+        <p class="text-gray-400 text-sm">1 saatlıq müvəqqəti email. Spam-dan qorun, anonim qeydiyyat et.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-yellow-500/20 flex items-center justify-center text-yellow-400 text-xl mb-4">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Balans Sistemi</h3>
+        <p class="text-gray-400 text-sm">Kart və kriptovalyuta ilə yükləmə. Bonus və referal komissiyası.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center text-purple-400 text-xl mb-4">
+          <i class="fas fa-users"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">Referal Proqramı</h3>
+        <p class="text-gray-400 text-sm">Dostlarını dəvət et, sabit bonus + depozit komissiyası qazan.</p>
+      </div>
+
+      <div class="glass rounded-2xl p-6 card-hover transition duration-300">
+        <div class="w-12 h-12 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xl mb-4">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3 class="font-semibold text-lg mb-2">24/7 Dəstək</h3>
+        <p class="text-gray-400 text-sm">Ticket sistemi ilə birbaşa adminə yaz, sürətli cavab al.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-4xl mx-auto px-4 pb-20">
+    <div class="glass rounded-3xl p-10 text-center border border-indigo-500/20">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Hazırsan?</h2>
+      <p class="text-gray-400 mb-8">Bir neçə saniyəyə qeydiyyatdan keç və xidmətlərdən istifadə et.</p>
+      <a href="register.html" class="btn-primary inline-block px-10 py-3.5 rounded-2xl font-semibold text-lg shadow-lg shadow-indigo-500/25">
+        Pulsuz Qeydiyyat
+      </a>
+    </div>
+  </section>
+
+  <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm">
+    © 2026 Crash Number Bot. Bütün hüquqlar qorunur.
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — Crash Number Bot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca' },
+            dark: { 700: '#2a2a3c', 800: '#1e1e2e', 900: '#11111b', 950: '#0b0b12' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body { background: #0b0b12; min-height: 100vh; }
+    .glass { background: rgba(30, 30, 46, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.06); }
+    .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6); }
+    .btn-primary:hover { background: linear-gradient(135deg, #4f46e5, #7c3aed); }
+    .sidebar-link.active { background: rgba(99,102,241,0.15); color: #a5b4fc; border-right: 3px solid #6366f1; }
+    .sidebar-link:hover { background: rgba(255,255,255,0.04); }
+    .stat-card:hover { border-color: rgba(99,102,241,0.3); }
+  </style>
+</head>
+<body class="text-gray-100 font-sans">
+
+  <div class="flex min-h-screen">
+    <!-- Sidebar -->
+    <aside class="hidden lg:flex flex-col w-64 bg-dark-900 border-r border-white/5 fixed h-full z-40">
+      <div class="p-5 flex items-center gap-3 border-b border-white/5">
+        <div class="w-9 h-9 rounded-lg bg-red-500/80 flex items-center justify-center font-bold text-sm">A</div>
+        <span class="text-lg font-bold">Crash <span class="text-red-400">Admin</span></span>
+      </div>
+      <nav class="flex-1 py-4 overflow-y-auto">
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mb-2">İdarəetmə</p>
+        <a href="admin.html" class="sidebar-link active flex items-center gap-3 px-5 py-2.5 text-sm transition">
+          <i class="fas fa-tachometer-alt w-5 text-center"></i> Dashboard
+        </a>
+        <a href="#users" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-users w-5 text-center"></i> İstifadəçilər
+        </a>
+        <a href="#deposits" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-money-bill-wave w-5 text-center"></i> Depozitlər
+        </a>
+        <a href="#orders" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-shopping-cart w-5 text-center"></i> Sifarişlər
+        </a>
+        <a href="#tickets" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-headset w-5 text-center"></i> Ticketlər
+        </a>
+        <a href="#settings" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-cog w-5 text-center"></i> Ayarlar
+        </a>
+        <a href="#broadcast" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-bullhorn w-5 text-center"></i> Broadcast
+        </a>
+        <p class="px-5 text-xs text-gray-500 uppercase tracking-wider mt-6 mb-2">Digər</p>
+        <a href="dashboard.html" class="sidebar-link flex items-center gap-3 px-5 py-2.5 text-sm text-gray-400 transition">
+          <i class="fas fa-arrow-left w-5 text-center"></i> İstifadəçi paneli
+        </a>
+      </nav>
+      <div class="p-4 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-red-500/30 flex items-center justify-center text-red-300 font-semibold text-sm">A</div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-medium truncate">Admin</p>
+            <p class="text-xs text-gray-500">ID: 8253247719</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="flex-1 lg:ml-64">
+      <header class="sticky top-0 z-30 glass px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <h1 class="text-lg font-semibold">Admin Dashboard</h1>
+        </div>
+        <div class="text-xs text-gray-500">18.10.2026</div>
+      </header>
+
+      <div class="p-4 md:p-6 max-w-6xl mx-auto space-y-6">
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="stat-card glass rounded-2xl p-4 border border-transparent transition">
+            <p class="text-xs text-gray-500 mb-1">Ümumi istifadəçi</p>
+            <p class="text-2xl font-bold">1,248</p>
+            <p class="text-xs text-green-400 mt-1">+23 bugün</p>
+          </div>
+          <div class="stat-card glass rounded-2xl p-4 border border-transparent transition">
+            <p class="text-xs text-gray-500 mb-1">Balans cəmi</p>
+            <p class="text-2xl font-bold">4, Troya.80</p>
+            <p class="text-xs text-gray-500 mt-1">AZN</p>
+          </div>
+          <div class="stat-card glass rounded-2xl p-4 border border-transparent transition">
+            <p class="text-xs text-gray-500 mb-1">Bugünkü gəlir</p>
+            <p class="text-2xl font-bold text-green-400">186.40</p>
+            <p class="text-xs text-gray-500 mt-1">AZN</p>
+          </div>
+          <div class="stat-card glass rounded-2xl p-4 border border-transparent transition">
+            <p class="text-xs text-gray-500 mb-1">Gözləyən depozit</p>
+            <p class="text-2xl font-bold text-yellow-400">7</p>
+            <p class="text-xs text-gray-500 mt-1">təsdiq gözləyir</p>
+          </div>
+        </div>
+
+        <!-- Today's sales -->
+        <div class="glass rounded-2xl p-5">
+          <h2 class="font-semibold mb-4"><i class="fas fa-chart-bar text-indigo-400 mr-2"></i>Bugünkü satış</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+            <div class="bg-dark-800/60 rounded-xl p-4">
+              <p class="text-gray-400 mb-1">📱 SMS</p>
+              <p class="text-xl font-bold">42 sifariş</p>
+              <p class="text-green-400">78.50 AZN</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-4">
+              <p class="text-gray-400 mb-1">📈 SMM</p>
+              <p class="text-xl font-bold">18 sifariş</p>
+              <p class="text-green-400">95.20 AZN</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-4">
+              <p class="text-gray-400 mb-1">📧 Temp Mail</p>
+              <p class="text-xl font-bold">31 ədəd</p>
+              <p class="text-green-400">3.10 AZN</p>
+            </div>
+          </div>
+          <div class="mt-4 flex items-center justify-between text-sm">
+            <span class="text-gray-400">Təxmini xalis mənfəət</span>
+            <span class="text-lg font-bold text-emerald-400">~112.40 AZN</span>
+          </div>
+        </div>
+
+        <!-- Pending deposits -->
+        <div class="glass rounded-2xl p-5" id="deposits">
+          <h2 class="font-semibold mb-4"><i class="fas fa-clock text-yellow-400 mr-2"></i>Gözləyən depozitlər</h2>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead>
+                <tr class="text-gray-500 text-left border-b border-white/5">
+                  <th class="pb-2 pr-4">ID</th>
+                  <th class="pb-2 pr-4">İstifadəçi</th>
+                  <th class="pb-2 pr-4">Məbləğ</th>
+                  <th class="pb-2 pr-4">Üsul</th>
+                  <th class="pb-2">Əməliyyat</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-white/5">
+                <tr>
+                  <td class="py-3 pr-4 text-gray-400">#1042</td>
+                  <td class="py-3 pr-4">user8912</td>
+                  <td class="py-3 pr-4 font-medium">15.00 AZN</td>
+                  <td class="py-3 pr-4"><span class="text-xs bg-blue-500/15 text-blue-400 px-2 py-0.5 rounded">Kart</span></td>
+                  <td class="py-3 flex gap-2">
+                    <button class="text-xs bg-green-500/15 text-green-400 px-3 py-1 rounded-lg hover:bg-green-500/25">Təsdiq</button>
+                    <button class="text-xs bg-red-500/15 text-red-400 px-3 py-1 rounded-lg hover:bg-red-500/25">Rədd</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-gray-400">#1041</td>
+                  <td class="py-3 pr-4">user3401</td>
+                  <td class="py-3 pr-4 font-medium">10.00 AZN</td>
+                  <td class="py-3 pr-4"><span class="text-xs bg-yellow-500/15 text-yellow-400 px-2 py-0.5 rounded">BEP-20</span></td>
+                  <td class="py-3 flex gap-2">
+                    <button class="text-xs bg-green-500/15 text-green-400 px-3 py-1 rounded-lg hover:bg-green-500/25">Təsdiq</button>
+                    <button class="text-xs bg-red-500/15 text-red-400 px-3 py-1 rounded-lg hover:bg-red-500/25">Rədd</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 pr-4 text-gray-400">#1040</td>
+                  <td class="py-3 pr-4">user7721</td>
+                  <td class="py-3 pr-4 font-medium">25.00 AZN</td>
+                  <td class="py-3 pr-4"><span class="text-xs bg-blue-500/15 text-blue-400 px-2 py-0.5 rounded">Kart</span></td>
+                  <td class="py-3 flex gap-2">
+                    <button class="text-xs bg-green-500/15 text-green-400 px-3 py-1 rounded-lg hover:bg-green-500/25">Təsdiq</button>
+                    <button class="text-xs bg-red-500/15 text-red-400 px-3 py-1 rounded-lg hover:bg-red-500/25">Rədd</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Quick actions + User search -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div class="glass rounded-2xl p-5">
+            <h2 class="font-semibold mb-4"><i class="fas fa-search text-gray-400 mr-2"></i>İstifadəçi axtar</h2>
+            <div class="flex gap-2">
+              <input type="text" placeholder="İstifadəçi ID" class="flex-1 bg-black/30 border border-white/10 rounded-xl px-4 py-2.5 text-sm focus:border-indigo-500 outline-none">
+              <button class="btn-primary px-5 py-2.5 rounded-xl text-sm font-medium">Axtar</button>
+            </div>
+            <div class="mt-4 space-y-2 text-sm">
+              <p class="text-gray-500 text-xs">Son axtarılanlar:</p>
+              <button class="block w-full text-left bg-dark-800/50 hover:bg-dark-800 rounded-lg px-3 py-2 transition">
+                user8912 — 15.40 AZN — aktiv
+              </button>
+              <button class="block w-full text-left bg-dark-800/50 hover:bg-dark-800 rounded-lg px-3 py-2 transition">
+                user3401 — 0.00 AZN — aktiv
+              </button>
+            </div>
+          </div>
+
+          <div class="glass rounded-2xl p-5">
+            <h2 class="font-semibold mb-4"><i class="fas fa-bolt text-yellow-400 mr-2"></i>Sürətli əməliyyatlar</h2>
+            <div class="grid grid-cols-2 gap-2">
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-plus-circle text-green-400 mr-2"></i>Balans artır
+              </button>
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-minus-circle text-red-400 mr-2"></i>Balans çıx
+              </button>
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-ban text-orange-400 mr-2"></i>Blokla
+              </button>
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-bullhorn text-blue-400 mr-2"></i>Broadcast
+              </button>
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-cog text-gray-400 mr-2"></i>Ayarlar
+              </button>
+              <button class="bg-dark-800/60 hover:bg-dark-800 rounded-xl p-3 text-sm text-left transition">
+                <i class="fas fa-chart-pie text-purple-400 mr-2"></i>Huni statistikası
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Open tickets -->
+        <div class="glass rounded-2xl p-5" id="tickets">
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="font-semibold"><i class="fas fa-headset text-cyan-400 mr-2"></i>Açıq ticketlər</h2>
+            <span class="text-xs bg-red-500/15 text-red-400 px-2.5 py-1 rounded-lg">3 açıq</span>
+          </div>
+          <div class="space-y-2 text-sm">
+            <div class="flex items-center justify-between bg-dark-800/60 rounded-xl px-4 py-3">
+              <div>
+                <p class="font-medium">#T-209 — SMS gəlmədi</p>
+                <p class="text-xs text-gray-500">user8912 • 25 dəq əvvəl</p>
+              </div>
+              <button class="text-xs btn-primary px-3 py-1.5 rounded-lg">Cavabla</button>
+            </div>
+            <div class="flex items-center justify-between bg-dark-800/60 rounded-xl px-4 py-3">
+              <div>
+                <p class="font-medium">#T-208 — Depozit təsdiqi</p>
+                <p class="text-xs text-gray-500">user3401 • 1 saat əvvəl</p>
+              </div>
+              <button class="text-xs btn-primary px-3 py-1.5 rounded-lg">Cavabla</button>
+            </div>
+            <div class="flex items-center justify-between bg-dark-800/60 rounded-xl px-4 py-3">
+              <div>
+                <p class="font-medium">#T-207 — SMM ləng gedir</p>
+                <p class="text-xs text-gray-500">user7721 • 3 saat əvvəl</p>
+              </div>
+              <button class="text-xs btn-primary px-3 py-1.5 rounded-lg">Cavabla</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Settings preview -->
+        <div class="glass rounded-2xl p-5" id="settings">
+          <h2 class="font-semibold mb-4"><i class="fas fa-cog text-gray-400 mr-2"></i>Cari ayarlar</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">SMS əmsalı</p>
+              <p class="font-semibold">4.61x</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">SMM əmsalı</p>
+              <p class="font-semibold">2.50x</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">Min. depozit</p>
+              <p class="font-semibold">3.00 AZN</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">Depozit bonusu</p>
+              <p class="font-semibold">10 AZN → +5%</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">Referal bonusu</p>
+              <p class="font-semibold">0.03 AZN</p>
+            </div>
+            <div class="bg-dark-800/60 rounded-xl p-3">
+              <p class="text-gray-500 text-xs">Ref. komissiya</p>
+              <p class="font-semibold">3%</p>
+            </div>
+          </div>
+          <button class="mt-4 text-sm text-indigo-400 hover:underline">Bütün ayarları redaktə et →</button>
+        </div>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>
